@@ -5,10 +5,10 @@ const Recipes = (props) =>
   
     return(
         <>
-    <div className="row">
+    <div className="card-columns">
     {
         props.recipes.map(recipe=>(
-            <div className="col-md-3">
+            
                 <div className="card py-2 text-center">
                 <img src={recipe.recipe.image} className='img-fluid w-50 mx-auto rounded-circles' />
                     <div className="card-body">
@@ -22,7 +22,7 @@ const Recipes = (props) =>
                         }
                     </ul>
                 </div>
-            </div>
+            
         ))
     }
     </div>
