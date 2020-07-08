@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import Recipes from './components/Recipes';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () =>
+{
+
+   const [search,setSearch]  =useState(""); 
+   const [recipes,setRecipes] = useState([]);
+
+   const app_id = "08f559bb";
+   const app_key = "f9f05dbf1104bdba0abdbdf063b6c853";
+
+   const onInputChange = (e) =>{
+     setSearch(e.target.value);
+   }
+  return(
+    <>
+  <div className="App">
+    <Header search={search} onInputChange={onInputChange} />
+    <Recipes />
     </div>
-  );
+    </>
+
+
+  )
+
 }
 
 export default App;
